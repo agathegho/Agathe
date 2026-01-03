@@ -12,10 +12,7 @@ def load_atl08_coordinates(atl08_csv_path,lat_col='lat', lon_col='lon'):
     # Trouver tous les fichiers CSV dans le dossier
     df=pd.read_csv(atl08_csv_path) 
     df=df.dropna(subset=[lat_col,lon_col])
-    df=df.drop_duplicates(subset=[lat_col,lon_col])
-    # coords=df[[lat_col,lon_col]].copy() 
-    # coords = coords.dropna()
-    # coords = coords.drop_duplicates() 
+    df=df.drop_duplicates(subset=[lat_col,lon_col]) 
     print(f"Total of {len(df)} coordinates loaded")
     return df[[lat_col,lon_col]].copy(), df.copy()
 
